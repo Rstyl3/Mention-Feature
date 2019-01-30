@@ -1,5 +1,8 @@
 # at-input
-
+based on:
+project : https://github.com/AfikDeri/VueJS-Autocomplete
+part 1 https://www.youtube.com/watch?v=cuo9T6rc-VE
+part 2 https://www.youtube.com/watch?v=mdl3tLZ7sdA
 ## Project setup
 ```
 npm install

@@ -1,17 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>Input Value: {{chatInput}}</p>
+   <xf-input :chatInput.sync="chatInput" :users="users" @btnClick="hdlReply" @itemSelected="hdlSelected"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import XfInput from './components/XfInput.vue'
+import users from '@/assets/users.js'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    XfInput
+  },
+  data(){
+    return{
+      chatInput: '',
+      users: users,
+    }
+  },
+  methods:{
+    hdlReply(){
+    },
+    hdlSelected(v){
+      console.log(JSON.parse(JSON.stringify(v)))
+      // let replaceInput = this.chatInput.split("@")[0] +' ' + JSON.parse(JSON.stringify(this.matches[this.selected])).name
+      //reparse object since its on Observer
+      let newInput = this.chatInput.split("@")[0] + ' ' + JSON.parse(JSON.stringify(v)).name
+      this.chatInput = newInput
+    }
   }
 }
 </script>
